@@ -17,40 +17,51 @@
 </head>
 <body>
 	<div class="container">
-		<div class="weather-container shadow-lg">
-			<h1>New York</h1>
-			<ul>
-				<li>
-					Friday 5:00
-				</li>
-				<li>
-					Clear
-				</li>
-			</ul>
-			<div class="row">
-				<div class="col-6">
-					<img
-							src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAALEgAACxIB0t1+/AAAAUhJREFUeNrt230NgzAQh2GkIAUJyJgMJCABCZNQKcxBHdyOpFkyEkYGV9oL75Lff2Rwz8pXe2tEpLlzGgAAAAAAAAAAYHsDg4+8Hp1m0ATNrJGNzGmbZdvOZN+lAFLRkyb+KHgvMX1H5wYgFR5OFL2VcATiMgA9uFbzzFD4Oss+2qoA9ID6k0P9yKnRVwGgBzJeWPg6Y1GAdIGSwpmKAFRS/C5CFoDCw/6v08EcIF3wpNL0WQHSrS5WDBDXt0hrgGfFxX+eE7IApCc8cZIuB0BwBBBMAZz9+l+jwApgcggwWQJEhwDRBMDp8P+cBhYAg2OAwQIgOAYIFgCzY4DZAkBcB4C7AywvcIwAAADgNsiDEI/CvAzxOsyECFNiTIoyLc7CCEtjLI6yPE6DBC0yNEnRJkejJK2yNEvTLs8fJgAAAAAAAADg1nkDlR7XfJiH1ggAAAAASUVORK5CYII="
-							alt="Sunny">
-					19°C | °F
-				</div>
-				<div class="col-6">
+		<div class="weather-app-wrapper">
+			<div class="weather-app-container shadow-lg">
+				<div class="overview">
+					<h1>New York</h1>
 					<ul>
 						<li>
-							Precipitation: 0%
+							Friday 5:00
 						</li>
 						<li>
-							Humidity: 47%
-						</li>
-						<li>
-							Wind: 13 km/h
+							Clear
 						</li>
 					</ul>
+				</div>
+				<div class="d-flex align-items-center row">
+					<div class="col-6">
+						<div class="d-flex align-items-center weather-temperature">
+							<img
+									src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAALEgAACxIB0t1+/AAAAUhJREFUeNrt230NgzAQh2GkIAUJyJgMJCABCZNQKcxBHdyOpFkyEkYGV9oL75Lff2Rwz8pXe2tEpLlzGgAAAAAAAAAAYHsDg4+8Hp1m0ATNrJGNzGmbZdvOZN+lAFLRkyb+KHgvMX1H5wYgFR5OFL2VcATiMgA9uFbzzFD4Oss+2qoA9ID6k0P9yKnRVwGgBzJeWPg6Y1GAdIGSwpmKAFRS/C5CFoDCw/6v08EcIF3wpNL0WQHSrS5WDBDXt0hrgGfFxX+eE7IApCc8cZIuB0BwBBBMAZz9+l+jwApgcggwWQJEhwDRBMDp8P+cBhYAg2OAwQIgOAYIFgCzY4DZAkBcB4C7AywvcIwAAADgNsiDEI/CvAzxOsyECFNiTIoyLc7CCEtjLI6yPE6DBC0yNEnRJkejJK2yNEvTLs8fJgAAAAAAAADg1nkDlR7XfJiH1ggAAAAASUVORK5CYII="
+									alt="Clear" id="icon"/>
+							<div>
+								<strong id="temperature">19</strong
+								><span class="units">°C | <a href="#">°F</a>
+								</span>
+							</div>
+						</div>
+					</div>
+					<div class="col-6">
+						<ul>
+							<li>
+								Precipitation: 0%
+							</li>
+							<li>
+								Humidity: 47%
+							</li>
+							<li>
+								Wind: 13 km/h
+							</li>
+						</ul>
+					</div>
 				</div>
 			</div>
 			<small class="credits">
 				<a href="https://github.com/anastasiazi/vanilla-weather-app"
-				   target="_blank">Open-source code</a> by Anastasia
+				   target="_blank"
+				   class="credits-link">Open-source code</a> by Anastasia
 				Zinchenko
 			</small>
 		</div>

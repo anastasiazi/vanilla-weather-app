@@ -14,7 +14,6 @@ function formatDate(timestamp) {
 }
 
 function displayTemperature(response) {
-    console.log(response);
     let temperatureElement = document.querySelector("#temperature");
     let cityElement = document.querySelector("#city");
     let descriptionElement = document.querySelector("#description");
@@ -37,8 +36,19 @@ function displayTemperature(response) {
         response.data.condition.description);
 }
 
-const apiKey = "4904e8e60b2d25ac4bf6450fbbt3bo36";
-let city = "New York";
-const apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}`;
+function search(city) {
+    const apiKey = "4904e8e60b2d25ac4bf6450fbbt3bo36";
+    const apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}`;
+    axios(apiUrl).then(displayTemperature);
+}
 
-axios(apiUrl).then(displayTemperature);
+function handleSubmit(event) {
+    event.preventDefault();
+    let cityInputElement = document.querySelector("#city-input");
+    search(cityInputElement.value);
+}
+
+search("New York");
+
+let formElement = document.querySelector("#search-form");
+formElement.addEventListener("submit", handleSubmit);

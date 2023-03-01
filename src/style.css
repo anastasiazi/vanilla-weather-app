@@ -87,6 +87,25 @@ li:first-letter {
     text-decoration: none;
 }
 
+.weather-forecast {
+    margin-top: 10px;
+    text-align: center;
+
+    color: #808080;
+}
+
+.weather-forecast-day {
+    font-size: 16px;
+}
+
+.weather-forecast-temperatures {
+    font-size: 13px;
+}
+
+.weather-forecast-temperature-max {
+    color: #333333 ;
+}
+
 .credits {
     font-size: 12px;
     color: white;

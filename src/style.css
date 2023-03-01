@@ -47,6 +47,11 @@ li:first-letter {
     margin-bottom: 20px;
 }
 
+.feels-like {
+    font-style: italic;
+    color: #dadde1;
+}
+
 .weather-temperature img {
     margin-right: 5px;
     width: 80px;

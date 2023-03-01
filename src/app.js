@@ -1,3 +1,5 @@
+const apiKey = "4904e8e60b2d25ac4bf6450fbbt3bo36";
+
 function formatDate(timestamp) {
     let date = new Date(timestamp);
     let hours = date.getHours();
@@ -23,7 +25,6 @@ function displayTemperature(response) {
     let iconElement = document.querySelector("#icon");
 
     celsiusTemperature = response.data.temperature.current;
-
     temperatureElement.innerHTML = Math.round(celsiusTemperature);
     cityElement.innerHTML = response.data.city;
     descriptionElement.innerHTML = response.data.condition.description;
@@ -36,11 +37,42 @@ function displayTemperature(response) {
     iconElement.setAttribute(
         "alt",
         response.data.condition.description);
+
+    getForecast(response.data.coordinates);
+}
+
+function getForecast(coordinates) {
+    let apiUrl = `https://api.shecodes.io/weather/v1/forecast?lon=${coordinates.longitude}&lat=${coordinates.latitude}&key=${apiKey}`;
+    axios(apiUrl).then(displayForecast);
+}
+
+function displayForecast(response) {
+    console.log(response.data.daily);
+    let forecastElement = document.querySelector("#forecast");
+
+    let days = ["Thu", "Fri", "Sat", "Sun", "Mon", "Tue"];
+
+    let forecastHTML = `<div class="row">`;
+    days.forEach(function (day) {
+        forecastHTML = forecastHTML + `
+              <div class="col-2">
+                <div class="weather-forecast-day">${day}</div>
+                <img src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/clear-sky-day.png" alt="weather icon"
+                     width="40"/>
+                <div class="weather-forecast-temperatures">
+                    <span class="weather-forecast-temperature-max">18°</span>
+                    <span class="weather-forecast-temperature-min">12°</span>
+                </div>
+              </div>
+        `;
+    });
+
+    forecastHTML = forecastHTML + `</div>`;
+    forecastElement.innerHTML = forecastHTML;
 }
 
 function search(city) {
-    const apiKey = "4904e8e60b2d25ac4bf6450fbbt3bo36";
-    const apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}`;
+    let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}`;
     if (city) {
         axios(apiUrl).then(displayTemperature);
     }

@@ -88,9 +88,8 @@ li:first-letter {
 }
 
 .weather-forecast {
-    margin-top: 10px;
     text-align: center;
-
+    margin-top: 10px;
     color: #808080;
 }
 
